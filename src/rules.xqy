@@ -34,4 +34,9 @@ declare variable $rules :=
 			<test>//FunctionDecl[fn:string-length(.) gt 1000]</test>
 			<level>warn</level>
 		</rule>
+		<rule>
+			<name>avoid nesting FLWOR expressions more than one level deep</name>
+			<test>//FLWORExpr[fn:count(ancestor::FLWORExpr) gt 1]</test>
+			<level>warn</level>
+		</rule>
 	</rules>/rule;

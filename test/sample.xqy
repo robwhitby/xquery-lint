@@ -48,3 +48,13 @@ declare function s6($a as item(), $b as item(), $c as item(), $d as item(), $e a
 {
 	"this function takes too many params"
 };
+
+declare function s7() as xs:string+
+{
+	for $x in (1 to 10)
+	return
+		for $y in (1 to 10)
+		return
+			for $z in (1 to 10)
+			return "too many nested FLWORs"
+};
