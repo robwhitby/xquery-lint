@@ -16,10 +16,10 @@ as element(lint)
 	let $ast := parse($filepath)
 	return
 		<lint src="{$filepath}">
-			{
-				apply-rule($ast, $rules:rules), 
-				if ($debug) then $ast else ()
-			}
+		{
+			apply-rule($ast, $rules:rules), 
+			if ($debug) then $ast else ()
+		}
 		</lint>
 };
 
@@ -38,14 +38,11 @@ as element(rule)?
 	where $failures
 	return 
 		<rule>
-			{
-				$rule/(name|level),
-				for $f in $failures
-				return <source>{$f//ancestor-or-self::FunctionDecl/fn:string()}</source>
-			}
+		{
+			$rule/(name|level),
+			for $f in $failures
+			return <source>{$f//ancestor-or-self::FunctionDecl/fn:string()}</source>
+		}
 		</rule>
 };
-
-
-
 

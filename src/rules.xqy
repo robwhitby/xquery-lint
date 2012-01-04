@@ -4,7 +4,6 @@ module namespace rules = "http://github.com/robwhitby/xquery-lint/rules";
 
 declare variable $rules :=
 	<rules>
-		
 		<rule>
 			<name>avoid using xdmp:eval and xdmp:value</name>
 			<test>//FunctionCall/FunctionName[QName = ("xdmp:eval", "xdmp:value")]</test>
@@ -25,6 +24,4 @@ declare variable $rules :=
 			<test>//RelativePathExpr[TOKEN = "//"]</test>
 			<level>info</level>
 		</rule>
-
 	</rules>/rule;
-
