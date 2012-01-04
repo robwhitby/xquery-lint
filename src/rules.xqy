@@ -24,4 +24,14 @@ declare variable $rules :=
 			<test>//RelativePathExpr[TOKEN = "//"]</test>
 			<level>info</level>
 		</rule>
+		<rule>
+			<name>avoid declaring functions with more than 4 parameters</name>
+			<test>//FunctionDecl/ParamList[fn:count(Param) gt 4]</test>
+			<level>info</level>
+		</rule>
+		<rule>
+			<name>avoid long functions</name>
+			<test>//FunctionDecl[fn:string-length(.) gt 1000]</test>
+			<level>warn</level>
+		</rule>
 	</rules>/rule;
