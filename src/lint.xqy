@@ -34,14 +34,13 @@ as element(XQuery)?
 declare private function apply-rule($ast as element(XQuery), $rule as element(rule))
 as element(rule)?
 {
-	let $failures := xdmp:value(fn:concat("$ast", $rule/test))
-	where $failures
+	let $matches := xdmp:value(fn:concat("$ast", $rule/test))
+	where $matches
 	return 
-		<rule>
+		<rule name="{$rule/name}" level="{$rule/level}" occurrences="{fn:count($matches)}">
 		{
-			$rule/(name|level),
-			for $f in $failures
-			return <source>{$f/ancestor-or-self::FunctionDecl/fn:string()}</source>
+			for $m in $matches
+			return <source>{$m/ancestor-or-self::FunctionDecl/fn:string()}</source>
 		}
 		</rule>
 };
