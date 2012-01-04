@@ -41,7 +41,7 @@ as element(rule)?
 		{
 			$rule/(name|level),
 			for $f in $failures
-			return <source>{$f//ancestor-or-self::FunctionDecl/fn:string()}</source>
+			return <source>{$f/ancestor-or-self::FunctionDecl/fn:string()}</source>
 		}
 		</rule>
 };

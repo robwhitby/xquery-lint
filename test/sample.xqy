@@ -56,5 +56,5 @@ declare function s7() as xs:string+
 		for $y in (1 to 10)
 		return
 			for $z in (1 to 10)
-			return "too many nested FLWORs"
+			return "FLWORs nested too deep"
 };
